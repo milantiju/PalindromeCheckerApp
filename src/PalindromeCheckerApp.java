@@ -14,7 +14,7 @@
  * @version 3.0
  */
 
-public class UseCase3PalindromeCheckerApp {
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
