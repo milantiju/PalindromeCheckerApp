@@ -1,23 +1,25 @@
 /**
  * ---------------------------------------------------------------
- * MAIN CLASS – UseCase11PalindromeCheckerApp
+ * MAIN CLASS – UseCase12PalindromeCheckerApp
  * ---------------------------------------------------------------
  *
- * Use Case 11: Object-Oriented Palindrome Service
+ * Use Case 12: Strategy Pattern for Palindrome Algorithms
  *
- * Demonstrates encapsulation by separating the palindrome
- * logic into a dedicated PalindromeChecker class.
+ * Demonstrates runtime selection of palindrome algorithms
+ * using the Strategy design pattern.
  */
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "racecar";
+        String input = "level";
 
-        PalindromeChecker checker = new PalindromeChecker();
+        PalindromeStrategy strategy;
 
-        boolean result = checker.checkPalindrome(input);
+        strategy = new StackStrategy();
+
+        boolean result = strategy.checkPalindrome(input);
 
         if (result) {
             System.out.println(input + " is a Palindrome");
