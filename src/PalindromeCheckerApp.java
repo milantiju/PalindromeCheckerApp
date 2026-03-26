@@ -1,41 +1,45 @@
+import java.util.Stack;
+
 /**
  * ---------------------------------------------------------------
- * MAIN CLASS – UseCase4PalindromeCheckerApp
+ * MAIN CLASS – UseCase5PalindromeCheckerApp
  * ---------------------------------------------------------------
  *
- * Use Case 4: Character Array Based Palindrome Check
+ * Use Case 5: Stack-Based Palindrome Checker
  *
  * Description:
  * This class checks whether a string is a palindrome
- * by converting it into a character array and comparing
- * characters using the two-pointer technique.
+ * using a Stack data structure.
+ *
+ * Characters are pushed into the stack and popped
+ * to compare with the original string.
  *
  * @author Developer
- * @version 4.0
+ * @version 5.0
  */
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "radar";
+        String input = "noon";
 
-        char[] characters = input.toCharArray();
+        Stack<Character> stack = new Stack<>();
 
-        int start = 0;
-        int end = characters.length - 1;
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
 
         boolean isPalindrome = true;
 
-        while (start < end) {
+        for (int i = 0; i < input.length(); i++) {
 
-            if (characters[start] != characters[end]) {
+            char popped = stack.pop();
+
+            if (input.charAt(i) != popped) {
                 isPalindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
         if (isPalindrome) {
@@ -43,6 +47,5 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(input + " is NOT a Palindrome");
         }
-
     }
 }
